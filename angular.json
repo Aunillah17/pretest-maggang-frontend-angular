@@ -1,0 +1,76 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "toko-shell": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/toko-shell",
+      "sourceRoot": "projects/toko-shell/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/toko-shell",
+            "index": "projects/toko-shell/src/index.html",
+            "browser": "projects/toko-shell/src/main.ts",
+            "polyfills": [],
+            "tsConfig": "projects/toko-shell/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/toko-shell/public"
+              }
+            ],
+            "styles": [
+              "projects/toko-shell/src/styles.css"
+            ],
+            "scripts": [],
+            "ssr": false,
+            "prerender": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "toko-shell:build:production"
+            },
+            "development": {
+              "buildTarget": "toko-shell:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "a98e5e77-870e-453c-bf34-8de2aa1d8a49"
+  }
+}

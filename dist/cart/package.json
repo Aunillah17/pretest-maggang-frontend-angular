@@ -1,0 +1,24 @@
+{
+  "name": "cart",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/core": "^21.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "module": "fesm2022/cart.mjs",
+  "typings": "types/cart.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./types/cart.d.ts",
+      "default": "./fesm2022/cart.mjs"
+    }
+  },
+  "type": "module"
+}
